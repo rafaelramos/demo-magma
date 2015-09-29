@@ -1,0 +1,19 @@
+<% if products.any? %>
+  <div class="row products-container <%= "#{definer}-container #{ 'active' if active }" %>" data-hook>
+    <% products.each do |product| %>
+      <%= render partial: 'spree/shared/product', locals: { product: product } %>
+    <% end %>
+    <% reset_cycle('classes') %>
+
+    <div class="product-container product-extra">
+      <div class="product-extra-inner-container">
+        <div class="text1"> YOUR TICKET INCLUDES </div>
+        <div class="text2"> Conference ticket, meals, tshirt, backpack, mask & swag. </div>
+        <div class="text1"> What are you waiting for? </div>
+        <%= link_to '#', class: 'button' do %>
+          <div> REGISTER HERE!</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,56 @@
+<% @body_id = 'product-details' %>
+
+<% cache cache_key_for_product do %>
+  <div data-hook="product_show" class="row product-show" itemscope itemtype="https://schema.org/Product">
+    <div class="col-xs-12 product-show-back">
+      <%= link_to :back do %>
+        <span class='glyphicon glyphicon-menu-left'></span> BACK
+      <% end %>
+    </div>
+    <%= form_for :order, :url => populate_orders_path do |f| %>
+      <% taxon = @product.taxons.first.name %>
+      <div class="col-xs-12 product-show-image">
+        <%= render partial: 'spree/shared/product_image_carousel', locals: { product: @product } %>
+      </div>
+      <div class="col-xs-12 product-show-name extra-margin"><%= @product.name %></div>
+      <div class="col-xs-12 product-show-price extra-margin"><%= display_price_by_taxon(@product, taxon) %></div>
+      <%= hidden_field_tag :quantity, 1 %>
+      <% if @product.variants_and_option_values(current_currency).any? %>
+        <div class="col-xs-12 product-show-text extra-margin">Select your <%= option_type_name(@product).downcase %>:</div>
+        <% first_available = true %>
+        <% variant_count = @product.variants_and_option_values(current_currency).count %>
+        <div class="col-xs-12 product-variants extra-margin">
+          <% @product.variants_and_option_values(current_currency).each_with_index do |variant| %>
+            <div class="product-variant-container pull-left" style="width: <%= 100/variant_count %>%;">
+              <%= label_tag "variant_id_#{ variant.id }", class: "#{ 'active' if variant.in_stock? && first_available } #{ 'disabled' unless variant.in_stock? }" do %>
+                <%= variant.option_values.first.presentation %>
+                <%= radio_button_tag "variant_id", variant.id, variant.in_stock? && first_available, 'data-price' => variant.price_in(current_currency).money, disabled: !variant.in_stock?, class: 'hidden' %>
+              <% end %>
+              <% first_available = false if variant.in_stock? %>
+            </div>
+          <% end%>
+        </div>
+        <div class="col-xs-12 extra-margin">
+          <div class="product-show-rate">
+            <%= option_type_name(@product).upcase %> CHART
+          </div>
+        </div>
+      <% else %>
+        <%= hidden_field_tag 'variant_id', @product.master.id %>
+        <div class="col-xs-12 extra-margin">
+          <div class="product-show-rate">
+            RATE DETAILS
+          </div>
+        </div>
+      <% end %>
+      <div class="col-xs-12 product-show-add extra-margin">
+        <%= button_tag class: '', id: 'add-to-cart-button', type: :submit do %>
+          <span class="magma-icon magma-bag"></span>ADD TO BAG
+        <% end %>
+      </div>
+      <div class="col-xs-12 product-show-description1 extra-margin">DESCRIPTION:</div>
+      <div class="col-xs-12 product-show-description2"><%= product_shipping_text(@product) %></div>
+      <div class="col-xs-12 product-show-description3"><%= @product.description %></div>
+    <% end %>
+  </div>
+<% end %>

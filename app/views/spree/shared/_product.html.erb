@@ -1,0 +1,58 @@
+<% url = spree.product_url(product, taxon_id: @taxon.try(:id)) %>
+<div id="product_<%= product.id %>" class="product-container product-list-item" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product" data-url="<%= url %>">
+  <% is_index = params[:action] == 'index' %>
+  <% taxon = product.taxons.first.name %>
+  <div class="product-container-internal <%= 'index' if is_index %>">
+    <% if taxon == 'Accommodations' %>
+      <%= render partial: 'spree/shared/product_image_carousel', locals: { product: product } %>
+    <% else %>
+      <div class="product-image" style="background-image: url(<%= raw_image_path(product.images.first, :large) %>)"></div>
+    <% end %>
+    <% unless product_in_stock(product) %>
+      <div class="product-sold-out">SOLD OUT</div>
+    <% end %>
+    <div class="product-info-small">
+      <div class="name">
+        <%= product.name %>
+      </div>
+      <div class="text-right price">
+        <%= display_price_by_taxon(product, taxon) %>
+      </div>
+    </div>
+    <%= form_for :order, url: '#', remote: true, class: 'product-form' do |f| %>
+      <div class="product-info-big">
+        <div class="container-fluid">
+          <div class="col-xs-6 name"><%= product.name %></div>
+          <%= button_tag class: "col-xs-6 bag-button #{ 'disable' unless product_in_stock(product) }",
+                         id: 'add-to-cart-button',
+                         type: :submit,
+                         disabled: !product_in_stock(product) do %>
+            <span class="magma-icon magma-bag"></span> ADD TO BAG
+          <% end %>
+          <%= hidden_field_tag :quantity, 1 %>
+          <div class="col-xs-12 price"><%= display_price_by_taxon(product, taxon) %></div>
+          <% if product.variants_and_option_values(current_currency).any? %>
+            <div class="col-xs-12 variants">
+              <% first_available = true %>
+              <span class='text'>Select your <%= option_type_name(product).downcase %>:</span>
+              <% product.variants_and_option_values(current_currency).each_with_index do |variant| %>
+                <%= variant_presentation(variant, (variant.in_stock? && first_available)) %>
+                <% first_available = false if variant.in_stock? %>
+              <% end%>
+              <span class="variant-type"> <%= option_type_name(product).upcase %> CHART </span>
+            </div>
+          <% else %>
+            <%= hidden_field_tag 'variant_id', product.master.id %>
+          <% end %>
+          <div class="col-xs-11 description">
+            <div class="shipping"><%= product_shipping_text(product) %></div>
+            <div><%= product.description %></div>
+          </div>
+          <div class="product-info-big-close">
+            <i class="magma-icon magma-chevron-left"></i>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

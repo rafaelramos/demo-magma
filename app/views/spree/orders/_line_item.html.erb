@@ -1,0 +1,49 @@
+<% variant = line_item.variant %>
+
+<%= order_form.fields_for :line_items, line_item do |item_form| %>
+  <div class="line-item clearfix">
+    <!--ITEM-->
+    <div class="col-sm-5 cart-item">
+      <div class="image">
+        <div class="cart-item-image-container" style="background-image: url(<%= raw_image_path(line_item.product.images.first, :product) %>)"></div>
+      </div>
+      <div class="info">
+        <div class="name"><%= line_item.name %></div>
+        <div class="size"><%= "#{option_type_name(variant.product)}: #{variant.option_values.first.name}" unless variant.is_master? %></div>
+        <div>
+          <%= link_to '#', class: 'details' do %>
+            <div class="details-section text">DETAILS</div>
+            <div class="details-section"><span class="glyphicon glyphicon-chevron-down"></span></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!--PRICE-->
+    <div class="col-sm-2 cart-item-align-center cart-item-price"><div class="tc"><%= "#{line_item.single_money.to_html} #{current_currency}" %></div></div>
+    <!--QUANTITY-->
+    <div class="col-sm-2 cart-item-quantity cart-item-align-center">
+      <div class="tc">
+        <div class="name"><%= line_item.name %></div>
+        <div class="price"><%= "#{line_item.single_money.to_html} #{current_currency}" %></div>
+        <%= item_form.text_field :quantity, class: "form-control line_item_quantity text-center", maxlength: "3" %>
+        <div class="cart-item-quantity-controls">
+          <%= link_to '#', class: 'plus' do %><span class="magma-icon magma-plus"></span><% end %>
+          <%= link_to '#', class: 'minus' do %><span class="magma-icon magma-minus"></span><% end %>
+        </div>
+      </div>
+    </div>
+    <!--TOTAL-->
+    <div class="col-sm-2 cart-item-align-center cart-item-price"><div class="tc"><%= "#{line_item.display_amount.to_html} #{current_currency}" unless line_item.quantity.nil? %></div></div>
+    <!--DELETE-->
+    <div class="col-sm-1 cart-item-align-center cart-item-delete">
+      <div class="tc"><%= link_to content_tag(:span, '', class: 'magma-icon magma-close'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}" %></div>
+    </div>
+    <!--DETAILS-->
+    <div class="cart-item-description-row col-sm-12">
+      <div class="cart-item-description-container">
+        <div class="shipping"><%= product_shipping_text(variant.product) %></div>
+        <div> <%= line_item.description %> </div>
+      </div>
+    </div>
+  </div>
+<% end %>

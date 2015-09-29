@@ -1,0 +1,14 @@
+<div data-hook="homepage_products">
+  <div id="products-header" class="clearfix">
+    <%= link_to 'ACCOMMODATIONS & MEALS', '#', class: "accommodations #{ 'active' if categoryActive('accommodations') }", data: { target: 'accommodations' } %>
+    <%= link_to 'SWAG', '#', class: "swag #{ 'active' if categoryActive('swag') }", data: { target: 'swag' } %>
+  </div>
+
+  <% cache(cache_key_for_custom(@accommodations, 'accommodations')) do %>
+    <%= render partial: 'spree/shared/products', locals: { products: @accommodations, definer: 'accommodations', active: categoryActive('accommodations') } %>
+  <% end %>
+
+  <% cache(cache_key_for_custom(@swag, 'swag')) do %>
+    <%= render partial: 'spree/shared/products', locals: { products: @swag, definer: 'swag', active: categoryActive('swag') } %>
+  <% end %>
+</div>

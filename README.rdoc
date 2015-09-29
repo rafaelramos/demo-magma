@@ -1,0 +1,9 @@
+== Magma Store 2015
+
+Magma Store it the e-Commerce site for the Magma Conf.
+
+== Setup
+
+* Rails 4.2.0
+* Ruby 2.1.6
+* Spree 3.0.0

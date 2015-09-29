@@ -1,0 +1,33 @@
+<div class="header-small-menu hid-big-screen">
+  <div class="col-xs-12 small-menu-header">MENU<span class="magma-icon magma-close pull-right"></span></div>
+  <div class="col-xs-12 small-menu-links">
+    <a href="/"><div class="col-xs-12 accommodations">ACCOMMODATIONS & MEALS <%= menu_small_icon('accommodations') %></div></a>
+    <a href="/?page=swag"><div class="col-xs-12 swag">SWAG <%= menu_small_icon('swag') %></div></a>
+    <a href="#"><div class="col-xs-12">ABOUT MAGMA <%= menu_small_icon('') %></div></a>
+    <a href="#"><div class="col-xs-12">CONTACT US <%= menu_small_icon('') %></div></a>
+    <a href="#"><div class="col-xs-12">BLOG <%= menu_small_icon('') %></div></a>
+    <% if spree_current_user %>
+      <a href="<%= spree.account_path %>"><div class="col-xs-12">MY ACCOUNT <%= menu_small_icon('my_account') %></div></a>
+      <a href="<%= spree.logout_path %>"><div class="col-xs-12">LOG OUT</div></a>
+    <% else %>
+      <a href="<%= spree.login_path %>"><div class="col-xs-12">LOG IN</div></a>
+    <% end %>
+    <a href="#"><div class="col-xs-12 extra-margin">ABOUT US <%= menu_small_icon('') %></div></a>
+    <a href="#"><div class="col-xs-12">PRIVACY & SECURITY <%= menu_small_icon('') %></div></a>
+    <a href="#"><div class="col-xs-12">TERMS OF USE <%= menu_small_icon('') %></div></a>
+  </div>
+  <div class="col-xs-12 small-menu-footer">
+    <%= link_to 'https://www.honeybadger.io/', target: '_blank' do %>
+      <div class="col-xs-12">Tracking errors with</div>
+      <div class="col-xs-12 extra-margin-icon"><span class="magma-icon magma-honey-logo"></span></div>
+    <% end %>
+    <%= link_to 'https://spreecommerce.com/', target: '_blank' do %>
+      <div class="col-xs-12 extra-margin">Powered by</div>
+      <div class="col-xs-12 extra-margin-icon"><span class="magma-icon magma-spree-logo"></span></div>
+    <% end %>
+    <%= link_to 'http://www.crowdint.com/', target: '_blank' do %>
+      <div class="col-xs-12 extra-margin">Developed by</div>
+      <div class="col-xs-12 extra-margin-icon"><span class="magma-icon magma-crowd-logo"></span></div>
+    <% end %>
+  </div>
+</div>

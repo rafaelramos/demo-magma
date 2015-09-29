@@ -1,0 +1,267 @@
+@import "spree/frontend/globals"
+
+#products-header, .header-links
+  margin-bottom: 20px
+  @media #{$small-screen}
+    text-align: center
+
+  a
+    color: black
+    font-weight: 500
+    margin-right: 10px
+    font-size: 18px
+    line-height: 20px
+    vertical-align: middle
+    @media #{$small-screen}
+      display: inline-block
+      text-align: center
+    &.active
+      color: $red
+      font-size: 20px
+      @media #{$small-screen}
+        float: none
+        margin: 0
+
+  @media #{$small-screen}
+    .accommodations
+      float: left
+      margin-left: -107px
+      width: 215px
+    .swag
+      float: right
+      margin-right: -30px
+      width: 45px
+
+  &.checkout a
+    color: $gray-text
+    &.active
+      color: $red
+    &:last-child
+      margin-left: 20px
+
+.products-container
+  display: none
+  &.active
+    display: block
+
+.product-container
+  cursor: pointer
+  padding: 5px
+  width: 50%
+  -webkit-transition: width 0.5s
+  transition: width 0.5s
+  -webkit-transition-delay: 0s /* Safari */
+  transition-delay: 0s
+  @media #{$small-screen}
+    width: 100%
+    padding: 5px 0
+  &.product-extra
+    color: $gray-text
+    cursor: default
+    padding: 30px
+    text-align: center
+    .product-extra-inner-container
+      margin: 0 auto
+      width: 80%
+      @media #{$small-screen}
+        width: auto
+    .text1
+      font-size: 24px
+      font-weight: bold
+    .text2
+      font-size: 20px
+      margin: 20px 0
+    .button
+      border: 1px solid $red
+      color: $red
+      display: inline-block
+      font-size: 20px
+      font-weight: bold
+      height: 56px
+      line-height: 56px
+      margin-top: 30px
+      width: 100%
+  .product-image
+    background: no-repeat center
+    background-size: cover
+    position: absolute
+    height: 100%
+    width: 100%
+    @media #{$tablet}
+      max-width: 475px
+    @media #{$lap}
+      max-width: 475px
+    @media #{$desk}
+      max-width: 575px
+    img
+      max-width: 100%
+      max-height: 100%
+
+  .product-container-internal
+    background-color: $lightest-gray
+    height: 300px
+    position: relative
+
+  .product-info-small
+    background-color: rgba(255,255,255,0.7)
+    bottom: 0
+    display: table
+    height: 73px
+    position: absolute
+    width: 100%
+    .name, .price
+      display: table-cell
+      vertical-align: middle
+      width: 50%
+    .name
+      font-size: 18px
+      padding-left: 15px
+    .price
+      font-size: 22px
+      padding-right: 15px
+
+  .product-info-big
+    height: 100%
+    display: none
+    padding: 15px 0
+    position: absolute
+    right: 0
+    top: 0
+    width: 60%
+    .name
+      font-size: 16px
+      line-height: 25px
+    .bag-button
+      background-color: $aqua
+      border: none
+      color: white
+      font-size: 16px
+      height: 50px
+      line-height: 50px
+      text-align: center
+      &.disable
+        background-color: $light-gray
+      .magma-icon
+        vertical-align: text-bottom
+    .price
+      font-size: 25px
+      margin-top: 10px
+    .variants
+      color: $gray
+      font-size: 12px
+      line-height: 24px
+      margin-top: 10px
+      .text
+        margin-right: 15px
+      .variant-type
+        border: 1px solid $red
+        color: $red
+        display: inline-block
+        height: 24px
+        padding: 0 5px
+        text-align: center
+
+    .description
+      color: $gray
+      margin-top: 10px
+    .shipping
+      color: $red
+
+  .product-variant-box
+    border: 1px solid $gray
+    cursor: pointer
+    display: inline-block
+    height: 24px
+    margin-right: 14px
+    padding: 0 5px
+    text-align: center
+    min-width: 25px
+    &.disable
+      border: 1px solid $light-gray
+      color: $light-gray
+      cursor: default
+    &.active
+      border: 1px solid $red
+      background-color: $red
+      color: white
+
+  .product-sold-out
+    background-color: $red
+    color: white
+    font-size: 20px
+    height: 40px
+    line-height: 40px
+    padding: 0 20px
+    position: absolute
+    right: -3px
+    transform: rotate(10deg)
+    top: 6px
+    z-index: 1
+
+  .product-info-big-close
+    bottom: 15px
+    cursor: pointer
+    height: 32px
+    position: absolute
+    right: 15px
+    width: 32px
+
+  .carousel
+    height: 100%
+    width: 100%
+    @media #{$tablet}
+      max-width: 475px
+    @media #{$lap}
+      max-width: 475px
+    @media #{$desk}
+      max-width: 575px
+    .carousel-indicators, .carousel-control
+      display: none
+    .carousel-control
+      background: none
+    .carousel-inner
+      height: 100%
+      .item
+        height: 100%
+        width: 100%
+
+  &.active
+    cursor: initial
+    width: 100%
+    z-index: 1
+    -webkit-transition-delay: 0.5s /* Safari */
+    transition-delay: 0.5s
+    .product-image
+      width: calc(50% - 5px)
+      @media #{$tablet}
+        min-width: 365px
+      @media #{$lap}
+        min-width: 475px
+      @media #{$desk}
+        min-width: 575px
+
+    .index
+      .product-info-big
+        width: calc(50% - 5px)
+        .container-fluid
+          padding-left: 0
+      .carousel
+        width: calc(50% - 5px)
+        @media #{$tablet}
+          min-width: 365px
+        @media #{$lap}
+          min-width: 475px
+        @media #{$desk}
+          min-width: 575px
+        .carousel-indicators, .carousel-control
+          display: block
+        .product-image
+          width: 100%
+
+.eventbrite-banner
+  background-color: $almost-white
+  margin-top: 30px
+  .container
+    padding: 20px 5px
+  iframe
+    height: 517px

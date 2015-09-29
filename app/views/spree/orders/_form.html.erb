@@ -1,0 +1,13 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+
+<div id="cart-detail">
+  <div class="cart-header clearfix hid-small-screen">
+    <div class="col-sm-5">ITEM</div>
+    <div class="col-sm-2">PRICE</div>
+    <div class="col-sm-2">QUANTITY</div>
+    <div class="col-sm-2">TOTAL</div>
+    <div class="col-sm-1"></div>
+  </div>
+  <div class="col-sm-12 cart-header-small hid-big-screen">SHOPPING BAG</div>
+  <%= render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
+</div>

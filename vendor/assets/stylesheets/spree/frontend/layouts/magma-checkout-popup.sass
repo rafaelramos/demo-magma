@@ -1,0 +1,97 @@
+@import "spree/frontend/globals"
+
+#spree-header .sub-header #link-to-cart
+  position: relative
+
+.magma-checkout-popup
+  display: none
+  position: absolute
+  right: -24px
+  top: 100%
+  width: 300px
+  z-index: 2
+
+.magma-checkout-popup-triangle
+  border: 10px solid transparent
+  border-bottom: 10px solid #525252
+  position: absolute
+  right: 48px
+  top: -20px
+
+.magma-checkout-popup-body
+  border: 1px solid $lightest-gray
+
+.magma-checkout-popup-element
+  background-color: white
+  border-top: 1px solid $lightest-gray
+  height: 100px
+  width: 100%
+  &:first-child
+    border-top: none
+  .img
+    background-position: center
+    background-size: cover
+    float: left
+    height: 100px
+    width: 100px
+  .info
+    height: 50px
+  .text
+    float: left
+    height: 100px
+    padding: 10px
+    width: 168px
+  .delete
+    float: right
+    width: 30px
+    a
+      color: $red !important
+      background-color: transparent !important
+  .name
+    color: black
+    font-size: 12px
+    font-weight: 500
+    line-height: 14px
+  .size
+    color: $dark-gray
+    font-size: 12px
+    font-weight: 500
+    line-height: 14px
+    margin-top: 5px
+  .price
+    color: black
+    font-size: 14px
+    font-weight: 500
+    line-height: 16px
+    margin-top: 14px
+  .total-container
+    height: 50%
+    button
+      background-color: $aqua
+      border: none
+      color: white
+      height: 38px
+      line-height: 38px
+      text-align: center
+      width: 100%
+  .total-text
+    color: $dark-gray
+    float: left
+    font-size: 14px
+    font-weight: 500
+    line-height: 40px
+  .total
+    color: $dark-gray
+    float: right
+    font-size: 14px
+    font-weight: bold
+    line-height: 40px
+  &.footer
+    padding: 10px
+
+.magma-checkout-popup-header
+  background-color: $dark-gray
+  color: white
+  line-height: 1
+  padding: 15px 0
+  text-align: center

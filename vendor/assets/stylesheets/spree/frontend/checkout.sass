@@ -1,0 +1,195 @@
+@import "spree/frontend/globals"
+
+#cart
+  @media #{$small-screen}
+    #spree-header
+      margin-bottom: 0
+    //.sub-header
+    //  display: none
+    #content
+      padding: 0
+    .table-responsive
+      border: none
+
+#cart #content
+  .cart-header-small
+    text-align: center
+
+  .cart-header, .cart-header-small
+    background-color: $gray-text
+    color: white
+    font-size: 16px
+    line-height: 44px
+
+  .line-item
+    border-bottom: 1px solid $lightest-gray
+
+  .cart-item
+    padding: 10px 0
+    display: table
+    @media #{$small-screen}
+      float: left
+      padding: 0
+
+    .image, .info
+      display: table-cell
+      vertical-align: middle
+
+    .image
+      width: 190px
+      @media #{$small-screen}
+        width: 160px
+      @media #{$palm}
+        width: 100px
+
+    .info
+      color: black
+      @media #{$small-screen}
+        display: none
+      .name
+        font-size: 16px
+        margin-bottom: 20px
+      .size
+        color: $gray
+        font-size: 12px
+        margin-bottom: 20px
+      .details
+        color: $gray-text
+        font-size: 12px
+      .details-section
+        float: left
+        margin-right: 3px
+      span
+        font-size: 8px
+        line-height: 12px
+        vertical-align: text-top
+
+  .cart-item-align-center
+    display: table
+    height: 160px
+    @media #{$palm}
+      height: 100px
+    .tc
+      display: table-cell
+      vertical-align: middle
+
+  .cart-item-price
+    color: black
+    font-size: 24px
+    @media #{$tablet}
+      font-size: 18px
+    @media #{$small-screen}
+      display: none
+
+  .cart-item-quantity
+    @media #{$big-screen}
+      .name, .price
+        display: none
+    @media #{$small-screen}
+      float: left
+      width: calc(100% - 210px)
+    @media #{$palm}
+      width: calc(100% - 150px)
+    input
+      border-radius: 0
+      border-color: $light-gray
+      -webkit-box-shadow: none
+      box-shadow: none
+      color: black
+      float: left
+      font-size: 22px
+      font-weight: 400
+      max-width: 100px
+      padding: 6px 0
+      width: calc(100% - 66px)
+    a
+      line-height: 1
+    .name
+      font-size: 16px
+      margin-bottom: 5px
+      @media #{$palm}
+        font-size: 10px
+        margin-bottom: 5px
+    .price
+      font-size: 18px
+      margin-bottom: 20px
+      @media #{$palm}
+        font-size: 12px
+        margin-bottom: 10px
+
+  .cart-item-quantity-controls
+    float: left
+    margin-left: 5px
+    padding-top: 3px
+
+  .cart-item-image-container
+    background: no-repeat center
+    background-size: cover
+    height: 160px
+    padding: 0
+    width: 160px
+    @media #{$palm}
+      height: 100px
+      width: 100px
+
+  .cart-item-description-row
+    border-top: none
+    color: $gray
+    padding: 0
+    padding-left: 190px
+    @media #{$small-screen}
+      display: none
+    .shipping
+      color: $red
+      font-size: 12px
+      margin-bottom: 10px
+    .cart-item-description-container
+      display: none
+      padding: 8px 0 16px 0
+
+  .cart-item-delete
+    @media #{$small-screen}
+      float: right
+
+  .total-section
+    margin: 20px 0
+    .total-section-container
+      position: relative
+    .keep-shopping
+      bottom: 0
+      font-size: 18px
+      height: 50px
+      line-height: 50px
+      position: absolute
+      right: calc(100% + 20px)
+      text-align: right
+      width: 150px
+      @media #{$small-screen}
+        line-height: 1
+        margin-top: 30px
+        position: initial
+        text-align: center
+        width: auto
+      a
+        color: $gray-text
+    .subtotal
+      font-size: 18px
+      margin-bottom: 30px
+      @media #{$small-screen}
+        display: none
+    .total
+      font-size: 22px
+      margin-bottom: 30px
+      @media #{$small-screen}
+        margin-bottom: 20px
+    .checkout-btn-container
+      height: 50px
+      width: 100%
+      button
+        border: none
+        background-color: $aqua
+        color: white
+        font-size: 18px
+        height: 50px
+        line-height: 50px
+        width: 100%

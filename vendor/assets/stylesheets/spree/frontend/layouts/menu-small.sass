@@ -1,0 +1,43 @@
+@import "spree/frontend/globals"
+
+.header-small-menu
+  background-color: white
+  position: absolute
+  right: 100%
+  top: 0
+  width: 100%
+  z-index: 2
+  &.visible
+    right: 0%
+  .small-menu-header
+    color: $gray-text
+    font-size: 18px
+    line-height: 18px
+    padding-bottom: 16px
+    padding-top: 16px
+    text-align: center
+    .magma-close
+      cursor: pointer
+  .small-menu-links
+    background-color: $red
+    padding: 25px 0
+    a
+      color: white
+      font-size: 18px
+      line-height: 25px
+    .col-xs-12
+      padding: 10px 30px
+    .magma-star
+      vertical-align: sub
+      margin-left: 10px
+    .extra-margin
+      margin-top: 30px
+  .small-menu-footer
+    text-align: center
+    padding: 40px 0
+    a
+      color: $dark-red
+    .extra-margin
+      margin-top: 30px
+    .extra-margin-icon
+      margin-top: 10px

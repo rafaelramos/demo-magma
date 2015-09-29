@@ -1,0 +1,86 @@
+@import "spree/frontend/globals"
+
+.product-show
+  text-align: center
+  .product-show-back
+    margin: 10px 0
+    text-align: left
+    a
+      color: $gray-text
+      font-size: 14px
+      line-height: 1
+  .product-show-image
+    padding: 0
+    .product-image
+      background-position: center
+      background-size: cover
+      height: 220px
+    @media #{$phablet}
+      padding: 0 25%
+  .product-show-name
+    font-size: 14px
+    @media #{$phablet}
+      font-size: 18px
+  .product-show-price
+    font-size: 18px
+    @media #{$phablet}
+      font-size: 22px
+  .product-show-text
+    color: $gray
+    @media #{$phablet}
+      font-size: 16px
+  .product-show-rate
+    border: 1px solid $red
+    color: $red
+    padding-bottom: 10px
+    padding-top: 10px
+    width: 100%
+  .product-show-add
+    width: 100%
+    button
+      background-color: $aqua
+      border: none
+      color: white
+      font-size: 20px
+      line-height: 20px
+      padding: 15px 0
+      width: 100%
+    span
+      margin-right: 5px
+  .product-show-description1
+    font-size: 12px
+    margin-bottom: 20px
+    @media #{$phablet}
+      font-size: 16px
+  .product-show-description2
+    color: $red
+    font-size: 12px
+    margin-bottom: 10px
+    @media #{$phablet}
+      font-size: 16px
+  .product-show-description3
+    color: $gray
+    font-size: 12px
+    margin-bottom: 30px
+    @media #{$phablet}
+      font-size: 16px
+  .extra-margin
+    margin-top: 20px
+
+  .product-variant-container
+    padding: 0 5px
+    label
+      border: 1px solid $gray-text
+      color: $gray-text
+      cursor: pointer
+      padding: 3px 0
+      width: 100%
+      &.active
+        border: 1px solid $red
+        background-color: $red
+        color: white
+      &.disabled
+        border: 1px solid $lightest-gray
+        background-color: transparent
+        color: $lightest-gray
+        cursor: not-allowed

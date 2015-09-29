@@ -1,0 +1,16 @@
+@import "spree/frontend/globals"
+
+#message-bar
+  background-color: #4a4a4a
+  color: white
+  display: none
+  font-weight: bold
+  padding: 15px 0
+  position: fixed
+  text-align: center
+  width: 100%
+  z-index: 100
+  &.error
+    background-color: $error-red
+  &.success
+    background-color: $blue-success

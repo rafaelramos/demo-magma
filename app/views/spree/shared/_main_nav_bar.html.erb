@@ -1,0 +1,29 @@
+<nav class="col-md-12">
+  <div id="main-nav-bar" class="navbar">
+    <%= link_to '/' do %>
+      <div class="magma-header-container">
+        <div class="sub-header-img pull-left hid-small-screen">
+          <div class="magma-icon magma-reylero"></div>
+        </div>
+        <div class="sub-header-text font-teko">
+          <div class="column"><div class="magma-icon magma-star"></div></div>
+          <div class="text-container column">
+            <div class="title">MAGMA STORE</div>
+            <div class="subtitle">BRACE YOURSELVES, MAGMA CONF IS COMING!</div>
+          </div>
+          <div class="column"><div class="magma-icon magma-star"></div></div>
+        </div>
+      </div>
+    <% end %>
+    <ul class="nav navbar-nav navbar-right hid-small-screen" data-hook>
+      <%= render partial: 'spree/shared/login_bar' %>
+      <li id="link-to-cart" data-hook>
+        <noscript>
+          <%= link_to Spree.t(:cart), '/cart' %>
+        </noscript>
+        &nbsp;
+      </li>
+      <script>magmaFetchCart()</script>
+    </ul>
+  </div>
+</nav>

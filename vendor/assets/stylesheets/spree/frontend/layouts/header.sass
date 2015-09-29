@@ -1,0 +1,119 @@
+@import "spree/frontend/globals"
+
+#spree-header
+  background: none
+
+  #header
+    background-color: white
+    padding: 0
+
+  #logo
+    margin: 5px 0
+
+  .navbar
+    min-height: initial
+    @media #{$big-screen}
+      height: 47px
+
+  .nav
+    color: $red
+    line-height: 47px
+    margin-right: 0
+    .separator
+      font-size: 18px
+      margin: 0 10px
+    a
+      color: $dark-gray
+      line-height: 18px
+      &.active
+        color: $red
+
+  .sub-header
+    background-color: $red
+    .nav
+      margin-right: -15px
+      a
+        color: white
+        line-height: 39px
+        text-transform: uppercase
+
+  .cart-info
+    height: 69px
+
+  #link-to-cart
+    span
+      position: relative
+    .items
+      line-height: 1
+      position: absolute
+      right: 0
+      top: 0
+
+  .sub-header-img
+    height: 168px
+    margin-left: 70px
+    position: relative
+    width: 190px
+    .magma-icon
+      left: 0
+      position: absolute
+      top: -28px
+    @media #{$tablet}
+      display: none
+
+  .sub-header-text
+    color: white
+    display: table
+    height: 168px
+    line-height: 1
+    margin: 0 auto
+    @media #{$big-screen}
+      float: right
+      margin-left: 40px
+    .text-container
+      padding: 0 20px
+      text-align: center
+    .title
+      border-bottom: 3px solid $dark-red
+      border-top: 3px solid $dark-red
+      font-size: 62px
+      padding: 12px 0
+      @media #{$palm}
+        font-size: 40px
+    .subtitle
+      font-size: 20px
+      margin-top: 12px
+      @media #{$palm}
+        font-size: 12px
+    .column
+      display: table-cell
+      vertical-align: middle
+    .magma-star
+      padding: 27px 0px
+
+  .magma-header-container
+    @media #{$big-screen}
+      float: left
+
+  .header-small-screen
+    padding: 10px
+    text-align: center
+    .magma-logo
+      margin: 3px 0
+    .glyphicon
+      font-size: 34px
+      color: $red
+
+  .header-small-screen-column
+    width: 55px
+    text-align: left
+    &.pull-right
+      text-align: right
+
+  .header-small-screen-item-count
+    color: $red
+    font-size: 16px
+    line-height: 43px
+    display: inline-block
+    vertical-align: bottom
+

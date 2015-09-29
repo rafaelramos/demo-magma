@@ -1,0 +1,39 @@
+<div id="message-bar"></div>
+<div>
+  <%= render partial: 'spree/shared/menu_small' %>
+</div>
+<div id="spree-header">
+  <header id="header" data-hook>
+    <div class="container header-big-screen hid-small-screen">
+      <div class="row">
+        <figure id="logo" class="col-sm-2" data-hook>
+          <%= link_to 'http://www.magmaconf.com/', target: '_blank' do %>
+            <span class="magma-icon magma-logo"></span>
+          <% end %>
+        </figure>
+        <%= render partial: 'spree/shared/nav_bar' %>
+      </div>
+    </div>
+    <div class="header-small-screen hid-big-screen">
+      <%= link_to '#', class: 'header-small-screen-menu' do %>
+        <div class="pull-left header-small-screen-column">
+          <span class="glyphicon glyphicon-align-justify pull-left"></span>
+        </div>
+      <% end %>
+      <%= link_to 'http://www.magmaconf.com/', target: '_blank' do %>
+        <span class="magma-icon magma-logo"></span>
+      <% end %>
+      <%= link_to '/cart' do %>
+        <div class="pull-right header-small-screen-column">
+          <span class="header-small-screen-item-count"><%= current_order.item_count if current_order %></span>
+          <span class="magma-icon magma-menu-bag"></span>
+        </div>
+      <% end %>
+    </div>
+  </header>
+  <div class="sub-header">
+    <div class="container">
+      <%= render partial: 'spree/shared/main_nav_bar' if store_menu? %>
+    </div>
+  </div>
+</div>
