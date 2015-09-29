@@ -169,6 +169,7 @@ GEM
       mime-types
     paranoia (2.1.1)
       activerecord (~> 4.0)
+    pg (0.18.3)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -342,6 +343,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  pg
   pry
   rails (= 4.2.0)
   sass-rails (~> 5.0)
