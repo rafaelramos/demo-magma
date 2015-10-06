@@ -39,6 +39,8 @@ module Magmastore2015
     # Add fonts path to asseets
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
+    config.assets.paths << Rails.root.join('vendor', 'assets')
+
     config.serve_static_assets = true
   end
 end
