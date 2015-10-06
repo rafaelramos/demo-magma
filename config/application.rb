@@ -36,11 +36,12 @@ module Magmastore2015
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    # Add fonts path to asseets
+    # Add fonts path to assets
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-
     config.assets.paths << Rails.root.join('vendor', 'assets')
 
-    config.serve_static_assets = true
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg)
+
+    config.serve_static_files = true
   end
 end

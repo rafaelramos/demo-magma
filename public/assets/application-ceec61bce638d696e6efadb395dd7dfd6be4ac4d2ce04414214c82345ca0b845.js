@@ -11594,17 +11594,6 @@ return jQuery;
   };
 
 }).call(this);
-(function() {
-  $('.product-container:not(.active)').on('click', function() {
-    $(this).addClass('active');
-  });
-
-  $('.product-info-big-close').on('click', function(e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    $(this).parents('.product-container').removeClass('active');
-  });
-});
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -11617,8 +11606,6 @@ return jQuery;
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-
 
 
 
